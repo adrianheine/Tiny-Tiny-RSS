@@ -5399,12 +5399,7 @@
 
 					print "<div class=\"cdmHeader\">";
 
-					if (!get_pref($link, "VFEED_GROUP_BY_FEED") || !$line["feed_title"]) {
-						$cdm_feed_icon = "<span style=\"cursor : pointer\" onclick=\"viewfeed($feed_id)\">$feed_icon_img</span>";
-					}
-
-					print "<div class=\"articleUpdated\">$updated_fmt $score_pic $cdm_feed_icon
-						</div>";
+					print "<div class=\"articleUpdated\">$updated_fmt $score_pic</div>";
 
 					print "<span id=\"RTITLE-$id\" class=\"titleWrap$hlc_suffix\"><a class=\"title\" 
 						onclick=\"javascript:toggleUnread($id, 0)\"
@@ -5420,11 +5415,10 @@
 					} */
 
 					print $labels_str;
-
-					if (!get_pref($link, 'VFEED_GROUP_BY_FEED')) {
-						if ($line["feed_title"]) {	
-							print "&nbsp;(<a href='javascript:viewfeed($feed_id)'>".$line["feed_title"]."</a>)";
-						}
+					if (!get_pref($link, 'VFEED_GROUP_BY_FEED') && isset($line['feed_title'])) {
+                        print "&nbsp;(<a href='javascript:viewfeed($feed_id)'>{$line['feed_title']}";
+                        if ($has_feed_icon) echo " $feed_icon_img";
+                        echo '</a>)';
 					}
 
 					print "</span></div>";
