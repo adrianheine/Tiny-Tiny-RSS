@@ -182,6 +182,7 @@
 					<option value="qmcAddFeed"><?php echo __('Subscribe to feed...') ?></option>
 					<option value="qmcEditFeed"><?php echo __('Edit this feed...') ?></option>
 					<option value="qmcRescoreFeed"><?php echo __('Rescore feed') ?></option>
+					<option value="qmcCatchupFeed"><?php echo __('Mark as read') ?></option>
 					<option value="qmcRemoveFeed"><?php echo __('Unsubscribe') ?></option>
 					</optgroup>
 					<optgroup label="<?php echo __('All feeds:') ?>">
@@ -231,9 +232,6 @@
 
 		<button name="update" onclick="return viewCurrentFeed('ForceUpdate')">
 			<?php echo __('Update') ?></button>
-
-		<button onclick="return catchupCurrentFeed()">
-			<?php echo __('Mark as read') ?></button>
 
 		</form>
 

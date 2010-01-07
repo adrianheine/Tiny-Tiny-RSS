@@ -481,6 +481,11 @@ function quickMenuGo(opid) {
 			editFeedDlg(getActiveFeedId());
 		}
 	
+		if (opid == 'qmcCatchupFeed') {
+			catchupCurrentFeed();
+			return;
+		}
+
 		if (opid == "qmcRemoveFeed") {
 			var actid = getActiveFeedId();
 
