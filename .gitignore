@@ -1,0 +1,4 @@
+icons/
+config.php
+update_daemon.lock
+update_daemon.stamp
