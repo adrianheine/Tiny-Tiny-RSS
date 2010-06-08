@@ -634,7 +634,7 @@
 	
 				$rss = new SimplePie();
 				$rss->set_useragent(SIMPLEPIE_USERAGENT . MAGPIE_USER_AGENT_EXT);
-	#			$rss->set_timeout(10);
+				$rss->set_timeout(MAGPIE_FETCH_TIME_OUT);
 				$rss->set_feed_url($fetch_url);
 				$rss->set_output_encoding('UTF-8');
 	
@@ -3970,7 +3970,7 @@
 		if (DEFAULT_UPDATE_METHOD == "1") {
 			$rss = new SimplePie();
 			$rss->set_useragent(SIMPLEPIE_USERAGENT . MAGPIE_USER_AGENT_EXT);
-//			$rss->set_timeout(MAGPIE_FETCH_TIME_OUT);
+			$rss->set_timeout(MAGPIE_FETCH_TIME_OUT);
 			$rss->set_feed_url($fetch_url);
 			$rss->set_output_encoding('UTF-8');
 			$rss->init();
