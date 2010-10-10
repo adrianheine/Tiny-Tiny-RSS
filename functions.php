@@ -1971,13 +1971,21 @@
 		if (!SINGLE_USER_MODE) {
 
 			$login_action = $_POST["login_action"];
-
-			# try to authenticate user if called from login form			
 			if ($login_action == "do_login") {
 				$login = $_POST["login"];
 				$password = $_POST["password"];
 				$remember_me = $_POST["remember_me"];
+            } elseif (defined('ALLOW_REMOTE_USER_AUTH') &&
+                ALLOW_REMOTE_USER_AUTH && isset($_SERVER['REMOTE_USER']) &&
+                !$_SESSION["uid"] || !validate_session($link)) {
+                $login_action = 'do_login';
+                $login = $_SERVER['REMOTE_USER'];
+                $password = $_SERVER['REMOTE_USER'];
+                $remember_me = 1;
+            }
 
+			# try to authenticate user if called from login form			
+			if ($login_action == "do_login") {
 				if (authenticate_user($link, $login, $password)) {
 					$_POST["password"] = "";
 
